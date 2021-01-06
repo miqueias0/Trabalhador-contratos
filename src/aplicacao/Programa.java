@@ -61,7 +61,7 @@ public class Programa {
 		Integer mes = cal.get(Calendar.MONTH);
 		Integer ano = cal.get(Calendar.YEAR);
 		System.out.println("Nome: " + trabalhador.getNome());
-		System.out.println("Departamento: " + trabalhador.getDepartamento());
+		System.out.println("Departamento: " + trabalhador.getDepartamento().getNome());
 		System.out.println("Renda de " + sdf.format(data) + ": " + trabalhador.renda(ano, mes));
 		
 		sc.close();
