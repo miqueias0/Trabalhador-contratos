@@ -10,7 +10,7 @@ public class Worker {
 	private String nome;
 	private WorkerLevel level;
 	private double salarioBase;
-	private Departamento dopartamento;
+	private Departamento departamento;
 	private List<HoraContratada> contratos = new ArrayList<>();
 	public Worker() {
 	}
@@ -18,7 +18,7 @@ public class Worker {
 		this.nome = nome;
 		this.level = level;
 		this.salarioBase = salarioBasico;
-		this.dopartamento = dopartamento;
+		this.departamento = dopartamento;
 	}
 	public String getNome() {
 		return nome;
@@ -35,14 +35,11 @@ public class Worker {
 	public double getSalarioBase() {
 		return salarioBase;
 	}
-	public void setSalarioBase(double salarioBasico) {
-		this.salarioBase = salarioBasico;
+	public Departamento getDepartamento() {
+		return departamento;
 	}
-	public Departamento getDopartamento() {
-		return dopartamento;
-	}
-	public void setDopartamento(Departamento dopartamento) {
-		this.dopartamento = dopartamento;
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 	public List<HoraContratada> getContrato() {
 		return contratos;
@@ -58,8 +55,8 @@ public class Worker {
 		Calendar cal = Calendar.getInstance();
 		for (HoraContratada c : contratos) {
 			cal.setTime(c.getData());
-			Integer c_ano = cal.get(Calendar.YEAR);
-			Integer c_mes =	cal.get(Calendar.MONTH);
+			int c_ano = cal.get(Calendar.YEAR);
+			int c_mes = 1 + cal.get(Calendar.MONTH);
 			if (c_ano == ano && c_mes == mes) {
 				soma += c.valorTotal();
 			}

@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Scanner;
 
 import entidades.Departamento;
@@ -15,7 +14,6 @@ import entidades.enums.WorkerLevel;
 public class Programa {
 
 	public static void main(String[] args) throws ParseException {
-		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		Worker trabalhador = new Worker();
 		Departamento Departamento = new Departamento();
@@ -23,6 +21,7 @@ public class Programa {
 		Date data = new Date();
 		HoraContratada horaContratada = new HoraContratada();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("MM/yyyy");
 		System.out.print("Entre com o departamento: ");
 		String nomeDepartamento = sc.nextLine();
 		System.out.println("Entre com os dados do trabalhador:");
@@ -56,13 +55,13 @@ public class Programa {
 			trabalhador.addContrato(horaContratada);
 		}
 		System.out.print("Entre com o mês e ano para caucular a renda (MM/AAAA): ");
-		data = sdf.parse(sc.next());
+		data = sdf1.parse(sc.next());
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(data);
 		Integer mes = cal.get(Calendar.MONTH);
 		Integer ano = cal.get(Calendar.YEAR);
 		System.out.println("Nome: " + trabalhador.getNome());
-		System.out.println("Departamento: " + trabalhador.getDopartamento());
+		System.out.println("Departamento: " + trabalhador.getDepartamento());
 		System.out.println("Renda de " + sdf.format(data) + ": " + trabalhador.renda(ano, mes));
 		
 		sc.close();
