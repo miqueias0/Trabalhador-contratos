@@ -24,7 +24,7 @@ public class Programa {
 		SimpleDateFormat sdf1 = new SimpleDateFormat("MM/yyyy");
 		System.out.print("Entre com o departamento: ");
 		String nomeDepartamento = sc.nextLine();
-		System.out.println("Entre com os dados do trabalhador:");
+		System.out.println("Entre com os dados do trabalhador (J/M/S):");
 		System.out.print("Nome: ");
 		String nome = sc.nextLine();
 		System.out.print("Level: ");
